@@ -1,0 +1,23 @@
+name: Deploy
+
+# Controls when the workflow will run
+on: [push]
+jobs:
+  # This workflow contains a single job called "build"
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Generate Directory Listings
+        run: |
+          mkdir dist
+          cp -r $(ls | egrep -v 'dist|gen-listings.py') dist
+          python3 gen-listings.py dist -r
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: dist
