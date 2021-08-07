@@ -1,7 +1,3 @@
-#!/bin/bash
-
-slim=$1
-
 echo "updating system"
 sudo apt update
 sudo apt upgrade
@@ -18,26 +14,33 @@ mkdir .config/fish
 echo "installing rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-echo "installing bat"
-cargo install bat exa ripgrep du-dust procs git-delta
+echo "installing cmd tools"
+cargo install bat exa ripgrep du-dust procs git-delta fd-find broot 
 
 echo "installing starship"
-curl -fsSL https://starship.rs/install.sh | bash
+curl -fsSL https://starship.rs/install.sh | sh
 
 echo "installing tmux"
 sudo apt install tmux
+
+echo "installing java using jabba"
+curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash; and . ~/.jabba/jabba.fish
+jabba install adopt@1.8.0-292
+jabba alias default adopt@1.8.0-292
+
+echo "installing julia"
+sudo apt install julia
+
+echo "installing golang"
+sudo apt install golang
+
+echo "installing node with fnm"
+curl -fsSL https://fnm.vercel.app/install | bash
+fnm install --lts
 
 echo "configuring dotfiles"
 git clone --bare https://github.com/Zshoham/dotfiles.git $HOME/.dotfiles
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout -f
 
-if [ "$slim" == "s" ]
-then
-	rm $HOME/.config/alacritty.yml
-else
-	echo "installing alacritty"
-	sudo apt install alacritty
-fi
-
 echo "switching shell to fish"
-chsh -s `which fish` 
+chsh -s `which fish`
