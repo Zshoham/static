@@ -16,6 +16,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 echo "installing cmd tools"
 cargo install bat exa ripgrep du-dust procs git-delta fd-find broot 
+sudo apt install tree
 
 echo "installing starship"
 curl -fsSL https://starship.rs/install.sh | sh
