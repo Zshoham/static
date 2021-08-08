@@ -13,7 +13,7 @@ jobs:
       - name: Generate Directory Listings
         run: |
           mkdir public
-          cp -r $(ls | egrep -v 'dist|gen-listings.py') public
+          cp -r $(ls | egrep -v 'public|gen-listings.py') public
           python3 gen-listings.py public -r
 
       - name: Deploy
