@@ -12,12 +12,12 @@ jobs:
 
       - name: Generate Directory Listings
         run: |
-          mkdir dist
-          cp -r $(ls | egrep -v 'dist|gen-listings.py') dist
-          python3 gen-listings.py dist -r
+          mkdir public
+          cp -r $(ls | egrep -v 'dist|gen-listings.py') public
+          python3 gen-listings.py public -r
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
-          folder: dist
+          folder: public
