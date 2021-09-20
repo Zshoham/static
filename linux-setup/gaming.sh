@@ -1,3 +1,5 @@
+#!/dev/sh
+
 echo "installing steam"
 sudo apt install steam
 
