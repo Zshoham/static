@@ -17,3 +17,7 @@ sudo apt install inkscape
 echo "installing Audacity"
 sudo apt install audacity
 
+echo "installing Kdenlive"
+sudo add-apt-repository ppa:kdenlive/kdenlive-stable
+sudo apt-get update
+sudo apt install kdenlive
