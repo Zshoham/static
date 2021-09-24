@@ -9,5 +9,6 @@ sudo apt install beekeeper-studio
 echo "installing wireshark"
 sudo apt install wireshark
 
+echo "installing flatpak apps"
 flatpak install flathub rest.insomnia.Insomnia \
  com.axosoft.GitKraken
