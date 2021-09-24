@@ -41,8 +41,20 @@ sudo apt install stacer
 echo "installing gnome-boxes"
 sudo apt install gnome-boxes
 
-echo "installing flatpack  desktop apps"
-flatpak install org.telegram.desktop \
- com.bitwarden.desktop \
- com.discordapp.Discord \
- com.github.maoschanz.drawing
+echo "installing telegram"
+sudo apt install telegram-desktop
+
+echo "installing spotify"
+sudo curl -fsSLo /usr/share/keyrings/spotify-keyring.gpg https://download.spotify.com/debian/pubkey_0D811D58.gpg
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt update
+sudo apt install spotify-client
+
+echo "installing gnome drawing"
+sudo apt install drawing
+
+echo "installing flatpack desktop apps"
+flatpak install com.bitwarden.desktop \ 
+ flathub com.axosoft.GitKraken \
+ flathub com.discordapp.Discord
+

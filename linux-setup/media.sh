@@ -6,8 +6,14 @@ sudo apt install vlc
 echo "installing OBS"
 sudo apt install obs-studio
 
-flatpak install flathub org.gimp.GIMP \
- org.inkscape.Inkscape \
- org.audacityteam.Audacity
+echo "installing GIMP"
+sudo apt install gimp
 
+echo "installing Inkscape"
+sudo add-apt-repository ppa:inkscape.dev/stable
+sudo apt update
+sudo apt install inkscape
+
+echo "installing Audacity"
+sudo apt install audacity
 
