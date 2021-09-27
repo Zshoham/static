@@ -2,7 +2,6 @@
 
 echo "updating system"
 sudo apt update
-sudo apt upgrade
 sudo apt install build-essential
 
 echo "make python3 default"
