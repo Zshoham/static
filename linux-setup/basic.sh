@@ -64,8 +64,7 @@ export RUSTUP_HOME="$HOME/.local/share/rustup"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 echo "installing cmd tools"
-cargo install bat exa ripgrep du-dust procs git-delta fd-find broot cargo-edit cargo-update 
-sudo apt install tree
+cargo install bat exa ripgrep du-dust procs git-delta fd-find broot cargo-edit cargo-update
 
 echo "installing starship"
 curl -fsSL https://starship.rs/install.sh | sh
@@ -79,5 +78,12 @@ curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash; and . ~/.
 jabba install adopt@1.8.0-292
 jabba alias default adopt@1.8.0-292
 
+echo "installing chezmoi"
+sh -c "$(curl -fsLS git.io/chezmoi) -b /usr/bin"
+
 echo "switching shell to fish"
 chsh -s `which fish`
+
+cd $HOME
+
+fish -C "chezmoi init" -i
