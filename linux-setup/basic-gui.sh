@@ -54,7 +54,6 @@ echo "installing gnome drawing"
 sudo apt install drawing
 
 echo "installing flatpack desktop apps"
-flatpak install com.bitwarden.desktop \ 
- flathub com.axosoft.GitKraken \
+flatpak flathub com.axosoft.GitKraken \
  flathub com.discordapp.Discord
 
