@@ -51,7 +51,7 @@ sudo apt install telegram-desktop
 
 nice_print "installing spotify"
 sudo curl -fsSLo /usr/share/keyrings/spotify-keyring.gpg https://download.spotify.com/debian/pubkey_0D811D58.gpg
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+echo "deb [signed-by=/usr/share/keyrings/spotify-keyring.gpg arch=amd64] http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt update
 sudo apt install spotify-client
 
