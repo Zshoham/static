@@ -20,7 +20,7 @@ sudo apt upgrade
 
 nice_print "downloading desktop wallpaper"
 wget -r -np --cut-dirs=1 --no-parent --reject="index.html*" https://zshoham.github.io/static/wallpaper/
-sudo cp -r zshoham.github.io/wallpaper /usr/share/backgrounds
+sudo cp -r zshoham.github.io/wallpaper/* /usr/share/backgrounds
 rm -rf zshoham.github.io
 
 nice_print "installing synaptic"
@@ -29,10 +29,10 @@ sudo apt install synaptic
 nice_print "installing alacritty"
 sudo apt install alacritty
 
-nice_print "installing vscode"
-curl -fsSLo code.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
-sudo apt install ./code.deb
-rm ./code.deb
+# nice_print "installing vscode"
+# curl -fsSLo code.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+# sudo apt install ./code.deb
+# rm ./code.deb
 
 nice_print "installing brave browser"
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
@@ -58,31 +58,30 @@ sudo apt install spotify-client
 nice_print "installing gnome drawing"
 sudo apt install drawing
 
-nice_print "installing flatpack desktop apps"
-flatpak flathub com.axosoft.GitKraken \
- flathub com.discordapp.Discord
+nice_print "installing discord"
+flatpak install flathub com.discordapp.Discord
 
 nice_print "applying gnome settings"
 
 # general
 dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/wallpaper.xml'"
-dconf write /org/gnome/system/location/enabled false
-dconf write /org/gnome/shell/favorite-apps ['/org/gnome/shell/favorite-apps', 'io.elementary.appcenter.desktop', 'com.alacritty.Alacritty.desktop', 'brave-browser.desktop']
-dconf write /org/gnome/desktop/wm/preferences/button-layout 'appmenu:minimize,maximize,close'
+dconf write /org/gnome/system/location/enabled "false"
+dconf write /org/gnome/shell/favorite-apps "['/org/gnome/shell/favorite-apps', 'io.elementary.appcenter.desktop', 'com.alacritty.Alacritty.desktop', 'brave-browser.desktop']"
+dconf write /org/gnome/desktop/wm/preferences/button-layout "'appmenu:minimize,maximize,close'"
 
 # dock settings
-dconf write /org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size 36
-dconf write /org/gnome/shell/extensions/dash-to-dock/dock-fixed false
-dconf write /org/gnome/shell/extensions/dash-to-dock/intellihide true
-dconf write /org/gnome/shell/extensions/dash-to-dock/manualhide false
+dconf write /org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size "36"
+dconf write /org/gnome/shell/extensions/dash-to-dock/dock-fixed "false"
+dconf write /org/gnome/shell/extensions/dash-to-dock/intellihide "true"
+dconf write /org/gnome/shell/extensions/dash-to-dock/manualhide "false"
 
 # pop-os settings
-dconf write /org/gnome/shell/extensions/pop-shell/tile-by-default true
-dconf write /org/gnome/shell/extensions/pop-shell/active-hint true
-dconf write /org/gnome/shell/extensions/pop-shell/show-title false
-dconf write /org/gnome/shell/extensions/pop-shell/hint-color-rgba 'rgb(213,196,161)'
-dconf write /org/gnome/shell/extensions/pop-cosmic/show-applications-button false
+dconf write /org/gnome/shell/extensions/pop-shell/tile-by-default "true"
+dconf write /org/gnome/shell/extensions/pop-shell/active-hint "true"
+dconf write /org/gnome/shell/extensions/pop-shell/show-title "false"
+dconf write /org/gnome/shell/extensions/pop-shell/hint-color-rgba "'rgb(213,196,161)'"
+dconf write /org/gnome/shell/extensions/pop-cosmic/show-applications-button "false"
 
 # touchpad
-dconf write /org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled true
-dconf write /org/gnome/desktop/peripherals/touchpad/natural-scroll true
+dconf write /org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled "true"
+dconf write /org/gnome/desktop/peripherals/touchpad/natural-scroll "true"

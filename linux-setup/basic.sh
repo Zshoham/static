@@ -88,6 +88,9 @@ curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash
 jabba install adopt@1.8.0-292
 jabba alias default adopt@1.8.0-292
 
+nice_print "installing neofetch"
+sudo apt install neofetch
+
 nice_print "installing chezmoi"
 sudo sh -c "$(curl -fsLS git.io/chezmoi) -b /usr/bin"
 
@@ -95,4 +98,5 @@ cd $HOME
 
 chezmoi init --apply --ssh Zshoham
 
-
+nice_print "rebooting system to apply all changes"
+shutdown -r
