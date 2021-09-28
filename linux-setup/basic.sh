@@ -4,7 +4,7 @@ OFF='\033[0m'
 GREEN='\033[0;32m'
 
 nice_print() {
-	echo "\n$GREEN $1 $OFF$"	
+	echo "\n$GREEN $1 $OFF"	
 }
 
 nice_print "Before starting the setup make sure your SSH and GPG keys are set up"
