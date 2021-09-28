@@ -85,3 +85,6 @@ dconf write /org/gnome/shell/extensions/pop-cosmic/show-applications-button "fal
 # touchpad
 dconf write /org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled "true"
 dconf write /org/gnome/desktop/peripherals/touchpad/natural-scroll "true"
+
+# make startuo script executable
+sudo chmod +x $HOME/.config/fish/startup.fish
