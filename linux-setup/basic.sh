@@ -7,6 +7,12 @@ nice_print() {
 	echo "\n$GREEN $1 $OFF$"	
 }
 
+nice_print "Before starting the setup make sure your SSH and GPG keys are set up"
+read -r -p "Are you set up ? [y/n]: " choice
+if [ "$choice" = "${choice#[Yy]}" ] ;then
+    exit 1
+fi
+
 nice_print "updating system"
 sudo apt update
 sudo apt install build-essential
@@ -23,12 +29,6 @@ nice_print "enabling ufw and disabling ssh connections from outside local networ
 sudo ufw enable
 sudo ufw allow from 192.168.0.0/16 to any port 22 proto tcp
 
-nice_print "Before starting the setup make sure your ssh and GPG keys are set up"
-read -r -p "Are you set up ? [y/n]: " choice
-if [ "$choice" = "${choice#[Yy]}" ] ;then
-    exit 1
-fi
-
 nice_print "installing jetrains mono font"
 curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh | bash
 curl -fsSL https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -o JetBrainsMono.zip
@@ -39,7 +39,7 @@ rm -rf JetBrainsMono
 
 nice_print "installing github cli"
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
-nice_print "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 sudo apt update
 sudo apt install gh
 
