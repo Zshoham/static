@@ -8,11 +8,11 @@ nice_print() {
 }
 
 nice_print "removing libreoffice"
-sudo apt remove -y --purge libreoffice-core
-sudo apt remove -y --purge libreoffice-common
+sudo apt remove --purge libreoffice-core
+sudo apt remove --purge libreoffice-common
 
 nice_print "removing firefox"
-sudo apt remove -y --purge firefox
+sudo apt remove --purge firefox
 
 nice_print "updating system"
 sudo apt autoremove
@@ -22,7 +22,6 @@ nice_print "downloading desktop wallpaper"
 wget -r -np --cut-dirs=1 --no-parent --reject="index.html*" https://zshoham.github.io/static/wallpaper/
 sudo cp -r zshoham.github.io/wallpaper /usr/share/backgrounds
 rm -rf zshoham.github.io
-dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/wallpaper.xml'"
 
 nice_print "installing synaptic"
 sudo apt install synaptic
@@ -37,7 +36,7 @@ rm ./code.deb
 
 nice_print "installing brave browser"
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-nice_print "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update
 sudo apt install brave-browser
 
@@ -52,7 +51,7 @@ sudo apt install telegram-desktop
 
 nice_print "installing spotify"
 sudo curl -fsSLo /usr/share/keyrings/spotify-keyring.gpg https://download.spotify.com/debian/pubkey_0D811D58.gpg
-nice_print "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt update
 sudo apt install spotify-client
 
@@ -63,3 +62,27 @@ nice_print "installing flatpack desktop apps"
 flatpak flathub com.axosoft.GitKraken \
  flathub com.discordapp.Discord
 
+nice_print "applying gnome settings"
+
+# general
+dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/wallpaper.xml'"
+dconf write /org/gnome/system/location/enabled false
+dconf write /org/gnome/shell/favorite-apps ['/org/gnome/shell/favorite-apps', 'io.elementary.appcenter.desktop', 'com.alacritty.Alacritty.desktop', 'brave-browser.desktop']
+dconf write /org/gnome/desktop/wm/preferences/button-layout 'appmenu:minimize,maximize,close'
+
+# dock settings
+dconf write /org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size 36
+dconf write /org/gnome/shell/extensions/dash-to-dock/dock-fixed false
+dconf write /org/gnome/shell/extensions/dash-to-dock/intellihide true
+dconf write /org/gnome/shell/extensions/dash-to-dock/manualhide false
+
+# pop-os settings
+dconf write /org/gnome/shell/extensions/pop-shell/tile-by-default true
+dconf write /org/gnome/shell/extensions/pop-shell/active-hint true
+dconf write /org/gnome/shell/extensions/pop-shell/show-title false
+dconf write /org/gnome/shell/extensions/pop-shell/hint-color-rgba 'rgb(213,196,161)'
+dconf write /org/gnome/shell/extensions/pop-cosmic/show-applications-button false
+
+# touchpad
+dconf write /org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled true
+dconf write /org/gnome/desktop/peripherals/touchpad/natural-scroll true
