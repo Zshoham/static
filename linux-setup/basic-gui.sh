@@ -29,10 +29,10 @@ sudo apt install synaptic
 nice_print "installing alacritty"
 sudo apt install alacritty
 
-# nice_print "installing vscode"
-# curl -fsSLo code.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
-# sudo apt install ./code.deb
-# rm ./code.deb
+nice_print "installing vscode"
+curl -fsSLo code.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+sudo apt install ./code.deb
+rm ./code.deb
 
 nice_print "installing brave browser"
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
@@ -50,8 +50,8 @@ nice_print "installing telegram"
 sudo apt install telegram-desktop
 
 nice_print "installing spotify"
-sudo curl -fsSLo /usr/share/keyrings/spotify-keyring.gpg https://download.spotify.com/debian/pubkey_0D811D58.gpg
-echo "deb [signed-by=/usr/share/keyrings/spotify-keyring.gpg arch=amd64] http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo curl -fsSL https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/spotify-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/spotify-keyring.gpg] http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt update
 sudo apt install spotify-client
 
