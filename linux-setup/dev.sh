@@ -26,8 +26,10 @@ nice_print "installing golang"
 sudo apt install golang
 
 nice_print "installing node with fnm"
-curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.local/share/fnm"
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.local/bin"
 fnm install --lts
+fnm default lts-latest
+fnm use lts-latest
 
 nice_print "installing python tooling"
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
