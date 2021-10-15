@@ -13,6 +13,7 @@ sudo apt remove --purge libreoffice-common
 
 nice_print "removing firefox"
 sudo apt remove --purge firefox
+sudo apt remove --purge firefox-locale-ar firefox-locale-de firefox-locale-en firefox-locale-es firefox-locale-fr firefox-locale-it firefox-locale-ja firefox-locale-pt firefox-locale-ru firefox-locale-zh-hans firefox-locale-zh-hant
 
 nice_print "updating system"
 sudo apt autoremove
