@@ -13,7 +13,7 @@ sudo apt install clang clang-tidy lldb
 sudo apt install valgrind
 
 nice_print "installing just"
-curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | sudo bash -s -- --to /usr/bin
+nix-env -iA nixpkgs.just
 
 nice_print "installing cargo utilities"
 sudo apt install libssl-dev
@@ -49,4 +49,4 @@ nice_print "installing podman"
 sudo apt install podman
 
 nice_print "installing hexyl"
-cargo install hexyl
+nix-env -i hexyl
