@@ -26,21 +26,13 @@ nice_print "installing golang"
 sudo apt install golang
 
 nice_print "installing node with fnm"
-curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.local/bin"
+nix-env -iA nixpkgs.fnm
 fnm install --lts
 fnm default lts-latest
 fnm use lts-latest
 
 nice_print "installing python tooling"
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
-
-curl -o conda-installer.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-sudo chmod u+x conda-installer.sh
-sudo ./conda-installer.sh -b -p $HOME/.local/share/conda
-rm conda-installer.sh
-$HOME/.local/share/conda/bin/conda init fish
-sudo chown -R $USER $HOME/.local/share/conda
-$HOME/.local/share/conda/bin/conda config --set auto_activate_base false
+curl https://pyenv.run | bash
 
 nice_print "installing perf and bpftrace"
 sudo apt install linux-tools-generic bpftrace

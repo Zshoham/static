@@ -18,8 +18,7 @@ sudo apt update
 sudo apt install build-essential
 
 nice_print "make python3 default"
-sudo apt install python3-pip
-sudo apt install python-is-python3
+sudo apt install python3-pip python-is-python3
 
 nice_print "installing ssh-server"
 sudo apt install openssh-server
@@ -48,7 +47,8 @@ nice_print "installing nixpkgs"
 sh <(curl -L https://nixos.org/nix/install) --daemon
 . /etc/profile.d/nix.sh
 
-nix-env -i gh micro bat exa ripgrep fd delta du-dust broot bitwarden-cli starship
+nice_print "install command line utilities"
+nix-env -i gh micro bat exa ripgrep fd fzf delta du-dust broot bitwarden-cli starship
 
 nice_print "installing rust"
 export CARGO_HOME="$HOME/.local/share/cargo"
