@@ -1,8 +1,5 @@
 #!/bin/sh
 
-echo "installing MPV"
-nix-env -iA nixpkgs.mpv
-
 echo "installing OBS"
 sudo apt install obs-studio
 

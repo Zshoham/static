@@ -24,6 +24,9 @@ wget -r -np --cut-dirs=1 --no-parent --reject="index.html*" https://zshoham.gith
 sudo cp -r zshoham.github.io/wallpaper/* /usr/share/backgrounds
 rm -rf zshoham.github.io
 
+nice_print "installing MPV"
+nix-env -iA nixpkgs.mpv
+
 nice_print "installing synaptic"
 sudo apt install synaptic
 
@@ -87,5 +90,5 @@ dconf write /org/gnome/shell/extensions/pop-cosmic/show-applications-button "fal
 dconf write /org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled "true"
 dconf write /org/gnome/desktop/peripherals/touchpad/natural-scroll "true"
 
-# make startuo script executable
+# make startup script executable
 sudo chmod +x $HOME/.config/fish/startup.fish
