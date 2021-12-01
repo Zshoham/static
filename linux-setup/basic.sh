@@ -44,7 +44,10 @@ rm JetBrainsMono.zip
 rm -rf JetBrainsMono
 
 nice_print "installing nixpkgs"
-sh <(curl -L https://nixos.org/nix/install) --daemon
+curl -L -o nix_install.sh https://nixos.org/nix/install
+sudo chmod +x nix_install.sh
+./nix_install.sh --daemon
+rm ./nix_install.sh
 . /etc/profile.d/nix.sh
 
 nice_print "install command line utilities"
