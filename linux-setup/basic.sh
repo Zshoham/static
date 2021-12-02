@@ -33,7 +33,7 @@ sudo apt install fish
 mkdir .config/fish
 
 nice_print "changing default shell to fish"
-sudo chsh -s `which fish`
+chsh -s `which fish`
 
 nice_print "installing jetrains mono font"
 curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh | bash
