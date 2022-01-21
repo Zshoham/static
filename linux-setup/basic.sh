@@ -51,7 +51,7 @@ rm ./nix_install.sh
 . /etc/profile.d/nix.sh
 
 nice_print "install command line utilities"
-nix-env -i gh micro bat exa ripgrep fd fzf delta du-dust broot bitwarden-cli starship
+nix-env -i gh micro bat exa ripgrep fd fzf delta du-dust bitwarden-cli starship btop
 
 nice_print "installing rust"
 export CARGO_HOME="$HOME/.local/share/cargo"
