@@ -14,6 +14,8 @@ sudo apt remove --purge libreoffice-common
 nice_print "removing firefox"
 sudo apt remove --purge firefox
 sudo apt remove --purge firefox-locale-ar firefox-locale-de firefox-locale-en firefox-locale-es firefox-locale-fr firefox-locale-it firefox-locale-ja firefox-locale-pt firefox-locale-ru firefox-locale-zh-hans firefox-locale-zh-hant
+rm -rf $HOME/.mozilla/
+rm -rf /usr/lib/firefox/
 
 nice_print "updating system"
 sudo apt autoremove
@@ -47,8 +49,8 @@ sudo apt install brave-browser
 nice_print "installing stacer"
 sudo apt install stacer
 
-nice_print "installing gnome-boxes"
-sudo apt install gnome-boxes
+nice_print "installing virt-manager"
+sudo apt install virt-manager
 
 nice_print "installing telegram"
 sudo apt install telegram-desktop
