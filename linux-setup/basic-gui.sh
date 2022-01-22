@@ -61,6 +61,9 @@ echo "deb [signed-by=/usr/share/keyrings/spotify-keyring.gpg] http://repository.
 sudo apt update
 sudo apt install spotify-client
 
+nice_print "installing qbittorrent"
+sudo apt install qbittorrent
+
 nice_print "installing gnome drawing"
 sudo apt install drawing
 
