@@ -37,7 +37,7 @@ chsh -s `which fish`
 
 nice_print "installing jetrains mono font"
 curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh | bash
-curl -fsSL https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -o JetBrainsMono.zip
+curl -fsSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip -o JetBrainsMono.zip
 unzip JetBrainsMono.zip -d JetBrainsMono
 cp JetBrainsMono/* $HOME/.local/share/fonts
 rm JetBrainsMono.zip
