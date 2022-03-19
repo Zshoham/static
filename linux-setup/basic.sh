@@ -46,11 +46,10 @@ rm -rf JetBrainsMono
 nice_print "installing nixpkgs"
 curl -L -o nix_install.sh https://nixos.org/nix/install
 sudo chmod +x nix_install.sh
-./nix_install.sh --daemon
+./nix_install.sh --no-daemon
 rm ./nix_install.sh
-. /etc/profile.d/nix.sh
+. $HOME/.nix-profile/etc/profile.d/nix.sh
 nix-channel --add https://nixos.org/channels/nixpkgs-unstable
-
 
 nice_print "install command line utilities"
 nix-env -i gh micro bat exa ripgrep fd fzf delta du-dust bitwarden-cli starship btop
