@@ -8,16 +8,18 @@ nice_print() {
 }
 
 nice_print "removing libreoffice"
-sudo apt remove --purge libreoffice-core
-sudo apt remove --purge libreoffice-common
+sudo apt remove --purge `apt list --installed | grep libreoffice | cut -d "/" -f 1`
 
 nice_print "removing firefox"
-sudo apt remove --purge firefox
-sudo apt remove --purge firefox-locale-ar firefox-locale-de firefox-locale-en firefox-locale-es firefox-locale-fr firefox-locale-it firefox-locale-ja firefox-locale-pt firefox-locale-ru firefox-locale-zh-hans firefox-locale-zh-hant
+sudo apt remove --purge `apt list --installed | grep firefox | cut -d "/" -f 1`
 rm -rf $HOME/.mozilla/
 rm -rf /usr/lib/firefox/
 
+nice_print "removing pop-shop"
+sudo apt remove --purge pop-shop
+
 nice_print "updating system"
+sudo apt update
 sudo apt autoremove
 sudo apt upgrade
 
