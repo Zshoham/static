@@ -17,8 +17,10 @@ nice_print "updating system"
 sudo apt update
 sudo apt install build-essential
 
-nice_print "make python3 default"
-sudo apt install python3-pip python-is-python3
+nice_print "configuring python"
+sudo apt install python3-pip python-is-python3 python3-venv
+export PIPX_HOME="$HOME/.local/share/pipx"
+pip install --user pipx
 
 nice_print "installing ssh-server"
 sudo apt install openssh-server
