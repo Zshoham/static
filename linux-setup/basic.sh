@@ -53,7 +53,7 @@ rm ./nix_install.sh
 . $HOME/.nix-profile/etc/profile.d/nix.sh
 
 nice_print "install command line utilities"
-nix-env -i gh micro bat exa ripgrep fd fzf delta du-dust bitwarden-cli starship btop
+nix-env -i gh micro bat exa ripgrep fd sd fzf delta du-dust procs bitwarden-cli starship btop glow slides zellij helix
 
 nice_print "installing rust"
 export CARGO_HOME="$HOME/.local/share/cargo"
@@ -63,9 +63,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 nice_print "installing jq"
 sudo apt install jq
-
-nice_print "installing tmux"
-sudo apt install tmux
 
 nice_print "installing java using jabba"
 export JABBA_HOME="$HOME/.local/share/jabba"
