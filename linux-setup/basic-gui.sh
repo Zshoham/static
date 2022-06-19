@@ -29,7 +29,13 @@ sudo cp -r zshoham.github.io/wallpaper/* /usr/share/backgrounds
 rm -rf zshoham.github.io
 
 nice_print "installing MPV"
-nix-env -iA nixpkgs.mpv
+sudo apt install mpv
+
+nice_print "installing zathura"
+sudo apt install zathura
+
+nice_print "installing ani-cli"
+curl -s "https://raw.githubusercontent.com/pystardust/ani-cli/master/hist_transition.sh" | sh
 
 nice_print "installing synaptic"
 sudo apt install synaptic
@@ -77,7 +83,7 @@ nice_print "applying gnome settings"
 # general
 dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/wallpaper.xml'"
 dconf write /org/gnome/system/location/enabled "false"
-dconf write /org/gnome/shell/favorite-apps "['/org/gnome/shell/favorite-apps', 'io.elementary.appcenter.desktop', 'com.alacritty.Alacritty.desktop', 'brave-browser.desktop']"
+dconf write /org/gnome/shell/favorite-apps "['/org/gnome/shell/favorite-apps', 'com.alacritty.Alacritty.desktop', 'brave-browser.desktop']"
 dconf write /org/gnome/desktop/wm/preferences/button-layout "'appmenu:minimize,maximize,close'"
 
 # dock settings
