@@ -7,19 +7,12 @@ nice_print() {
 	echo "\n$GREEN $1 $OFF"	
 }
 
-nice_print "Before starting the setup make sure your SSH and GPG keys are set up"
-read -r -p "Are you set up ? [y/n]: " choice
-if [ "$choice" = "${choice#[Yy]}" ] ;then
-    exit 1
-fi
-
 nice_print "updating system"
 sudo apt update
 sudo apt install build-essential
 
 nice_print "configuring python"
 sudo apt install python3-pip python-is-python3 python3-venv
-export PIPX_HOME="$HOME/.local/share/pipx"
 pip install --user pipx
 
 nice_print "installing ssh-server"
@@ -56,30 +49,15 @@ nice_print "install command line utilities"
 nix-env -i gh micro bat exa ripgrep fd sd fzf delta du-dust procs bitwarden-cli starship btop glow slides zellij helix
 
 nice_print "installing rust"
-export CARGO_HOME="$HOME/.local/share/cargo"
-export RUSTUP_HOME="$HOME/.local/share/rustup"
-export PATH="$CARGO_HOME/bin:$PATH"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 nice_print "installing jq"
 sudo apt install jq
 
 nice_print "installing java using jabba"
-export JABBA_HOME="$HOME/.local/share/jabba"
-export PATH="$JABBA_HOME/bin:$PATH"
 curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash
 jabba install adopt@1.8.0-292
 jabba alias default adopt@1.8.0-292
 
 nice_print "installing neofetch"
 sudo apt install neofetch
-
-nice_print "installing chezmoi"
-nix-env -i chezmoi
-
-cd $HOME
-
-chezmoi init --apply --ssh Zshoham
-
-nice_print "rebooting system to apply all changes"
-shutdown -r
