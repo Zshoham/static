@@ -28,6 +28,14 @@ wget -r -np --cut-dirs=1 --no-parent --reject="index.html*" https://zshoham.gith
 sudo cp -r zshoham.github.io/wallpaper/* /usr/share/backgrounds
 rm -rf zshoham.github.io
 
+nice_print "installing jetrains mono font"
+curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh | bash
+curl -fsSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip -o JetBrainsMono.zip
+unzip JetBrainsMono.zip -d JetBrainsMono
+cp JetBrainsMono/* $HOME/.local/share/fonts
+rm JetBrainsMono.zip
+rm -rf JetBrainsMono
+
 nice_print "installing MPV"
 sudo apt install mpv
 
