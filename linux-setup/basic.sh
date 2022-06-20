@@ -30,14 +30,6 @@ mkdir .config/fish
 nice_print "changing default shell to fish"
 chsh -s `which fish`
 
-nice_print "installing jetrains mono font"
-curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh | bash
-curl -fsSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip -o JetBrainsMono.zip
-unzip JetBrainsMono.zip -d JetBrainsMono
-cp JetBrainsMono/* $HOME/.local/share/fonts
-rm JetBrainsMono.zip
-rm -rf JetBrainsMono
-
 nice_print "installing nixpkgs"
 curl -L -o nix_install.sh https://nixos.org/nix/install
 sudo chmod +x nix_install.sh
