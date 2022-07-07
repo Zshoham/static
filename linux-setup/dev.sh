@@ -8,7 +8,7 @@ nice_print() {
 }
 
 nice_print "installing c/c++ tooling"
-sudo apt install cmake
+sudo apt install cmake pkg-config
 sudo apt install clang clang-tidy lldb
 sudo apt install valgrind
 
