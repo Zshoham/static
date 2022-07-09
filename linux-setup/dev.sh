@@ -19,9 +19,6 @@ nice_print "installing cargo utilities"
 sudo apt install libssl-dev
 cargo install cargo-edit cargo-update
 
-nice_print "installing julia"
-sudo apt install julia
-
 nice_print "installing golang"
 sudo apt install golang
 
