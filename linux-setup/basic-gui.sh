@@ -90,7 +90,7 @@ nice_print "applying gnome settings"
 
 # general
 dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/wallpaper.xml'"
-ddconf write /org/gnome/desktop/background/picture-uri-dark "'file:///usr/share/backgrounds/wallpaper.xml'"
+dconf write /org/gnome/desktop/background/picture-uri-dark "'file:///usr/share/backgrounds/wallpaper.xml'"
 dconf write /org/gnome/system/location/enabled "false"
 dconf write /org/gnome/shell/favorite-apps "['/org/gnome/shell/favorite-apps', 'com.alacritty.Alacritty.desktop', 'brave-browser.desktop']"
 dconf write /org/gnome/desktop/wm/preferences/button-layout "'appmenu:minimize,maximize,close'"
@@ -111,6 +111,3 @@ dconf write /org/gnome/shell/extensions/pop-cosmic/show-applications-button "fal
 # touchpad
 dconf write /org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled "true"
 dconf write /org/gnome/desktop/peripherals/touchpad/natural-scroll "true"
-
-# make startup script executable
-sudo chmod +x $HOME/.config/fish/startup.fish
