@@ -34,6 +34,7 @@ sudo apt install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadli
 
 curl https://pyenv.run | bash
 pipx install poetry
+mkdir -p ~/.config/fish/completions/
 poetry completions fish > ~/.config/fish/completions/poetry.fish
 
 nice_print "installing perf and bpftrace"
