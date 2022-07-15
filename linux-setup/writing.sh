@@ -8,7 +8,7 @@ nice_print() {
 }
 
 nice_print "installing LaTex"
-sudo apt install texlive texlive-publishers texlive-science texlive-pstricks texlive-pictures texlive-xetex texlive-lang-other
+sudo apt install texlive texlive-publishers texlive-science texlive-pstricks texlive-pictures texlive-xetex texlive-lang-other latexmk
 
 nice_print "installing Obsidian"
 flatpak install flathub md.obsidian.Obsidian 
