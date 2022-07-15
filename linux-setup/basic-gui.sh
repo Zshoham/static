@@ -43,7 +43,10 @@ nice_print "installing zathura"
 sudo apt install zathura
 
 nice_print "installing ani-cli"
-curl -s "https://raw.githubusercontent.com/pystardust/ani-cli/master/hist_transition.sh" | sh
+git clone "https://github.com/pystardust/ani-cli.git" && cd ./ani-cli
+sudo cp ./bin/ani-cli /usr/local/bin
+sudo cp -a ./lib/ani-cli /usr/local/lib
+cd .. && rm -rf "./ani-cli"
 
 nice_print "installing synaptic"
 sudo apt install synaptic
