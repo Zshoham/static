@@ -114,3 +114,9 @@ dconf write /org/gnome/shell/extensions/pop-cosmic/show-applications-button "fal
 # touchpad
 dconf write /org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled "true"
 dconf write /org/gnome/desktop/peripherals/touchpad/natural-scroll "true"
+
+# terminal keybind
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name "Terminal"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name "$HOME/.local/bin/terminal"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name "<Super>t"
+
