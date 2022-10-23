@@ -12,3 +12,6 @@ sudo apt install steam
 
 nice_print "installing lutris"
 sudo apt install lutris
+
+nice_print "installing protonup"
+flatpak install flathub net.davidotek.pupgui2
