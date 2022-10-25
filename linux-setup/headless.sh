@@ -28,7 +28,7 @@ curl -L -o nix_install.sh https://nixos.org/nix/install
 sudo chmod +x nix_install.sh
 ./nix_install.sh --daemon
 rm ./nix_install.sh
-. $HOME/.nix-profile/etc/profile.d/nix.sh
+. /etc/profile.d/nix.sh
 
 nice_print "setting up home-manager"
 nix build --no-link $HOME/.config/home-manager#homeConfigurations.$USER.activationPackage
