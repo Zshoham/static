@@ -32,8 +32,7 @@ rm ./nix_install.sh
 
 nice_print "setting up home-manager"
 nix build --no-link $HOME/.config/home-manager#homeConfigurations.$USER.activationPackage
-"$(nix path-info $HOME/.config/home-manager#homeConfigurations.$USER.activationPackage)"/activate
-home-manager switch --flake '$HOME/.config/home-manager#sgame'
+"$(nix path-info $HOME/.config/home-manager#homeConfigurations.sgame.activationPackage)"/home-path/bin/home-manager switch -b backup --flake '$HOME/.config/home-manager#sgame'
 
 nice_print "changing default shell to fish"
 sudo chsh -s $(which fish) $USER
