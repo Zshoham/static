@@ -28,6 +28,9 @@ wget -r -np --cut-dirs=1 --no-parent --reject="index.html*" https://zshoham.gith
 sudo cp -r zshoham.github.io/wallpaper/* /usr/share/backgrounds
 rm -rf zshoham.github.io
 
+nice_print "installing kitty"
+kitty-update
+
 nice_print "installing MPV"
 sudo apt install -y mpv
 
