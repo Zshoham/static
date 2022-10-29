@@ -41,7 +41,7 @@ nice_print "installing c/c++ tooling"
 sudo apt install -y cmake pkg-config clang clang-tidy lldb valgrind
 
 nice_print "installing rust"
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+sh -c "$(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs)" -- --no-modify-path
 
 nice_print "installing docker"
 sudo mkdir -p /etc/apt/keyrings
