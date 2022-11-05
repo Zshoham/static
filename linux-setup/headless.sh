@@ -34,9 +34,6 @@ nice_print "setting up home-manager"
 nix build --no-link $HOME/.config/home-manager#homeConfigurations.$USER.activationPackage
 "$(nix path-info $HOME/.config/home-manager#homeConfigurations.$USER.activationPackage)"/home-path/bin/home-manager switch -b backup --flake $HOME/.config/home-manager#sgame
 
-nice_print "changing default shell to fish"
-sudo chsh -s $(which fish) $USER
-
 nice_print "installing c/c++ tooling"
 sudo apt install -y cmake pkg-config clang clang-tidy lldb valgrind
 
