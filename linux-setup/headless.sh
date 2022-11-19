@@ -4,7 +4,11 @@ OFF='\033[0m'
 GREEN='\033[0;32m'
 
 nice_print() {
-	echo "\n$GREEN $1 $OFF"	
+  msg="# $* #"
+  edge=$(echo "$msg" | sed 's/./#/g')
+  echo "$edge"
+  echo "$msg"
+  echo "$edge"
 }
 
 nice_print "updating system"
@@ -33,6 +37,8 @@ rm ./nix_install.sh
 nice_print "setting up home-manager"
 nix build --no-link $HOME/.config/home-manager#homeConfigurations.$USER.activationPackage
 "$(nix path-info $HOME/.config/home-manager#homeConfigurations.$USER.activationPackage)"/home-path/bin/home-manager switch -b backup --flake $HOME/.config/home-manager#sgame
+
+. "$HOME/.profile"
 
 nice_print "installing c/c++ tooling"
 sudo apt install -y cmake pkg-config clang clang-tidy lldb valgrind
