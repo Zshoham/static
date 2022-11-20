@@ -1,10 +1,11 @@
 #!/bin/sh
 
-OFF='\033[0m'
-GREEN='\033[0;32m'
-
 nice_print() {
-	echo "\n$GREEN $1 $OFF"	
+  msg="# $* #"
+  edge=$(echo "$msg" | sed 's/./#/g')
+  echo "$edge"
+  echo "$msg"
+  echo "$edge"
 }
 
 nice_print "removing libreoffice"
@@ -77,8 +78,4 @@ sudo apt install -y beekeeper-studio
 
 nice_print "installing wireshark"
 sudo apt install -y wireshark
-
-nice_print "installing flatpak apps"
-flatpak install -y flathub rest.insomnia.Insomnia \
- com.axosoft.GitKraken
 

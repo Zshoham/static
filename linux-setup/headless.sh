@@ -1,8 +1,5 @@
 #!/bin/sh
 
-OFF='\033[0m'
-GREEN='\033[0;32m'
-
 nice_print() {
   msg="# $* #"
   edge=$(echo "$msg" | sed 's/./#/g')
