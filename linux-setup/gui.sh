@@ -31,6 +31,8 @@ rm -rf zshoham.github.io
 
 nice_print "installing kitty"
 kitty-update
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $HOME/.local/bin/terminal 50
+sudo update-alternatives --set x-terminal-emulator $HOME/.local/bin/terminal
 
 nice_print "installing MPV"
 sudo apt install -y mpv
